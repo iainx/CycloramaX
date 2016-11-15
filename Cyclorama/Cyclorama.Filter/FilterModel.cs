@@ -7,7 +7,7 @@ using AppKit;
 using CoreImage;
 using Foundation;
 
-namespace Cyclorama
+namespace Cyclorama.Filter
 {
     public static class FilterModel
     {

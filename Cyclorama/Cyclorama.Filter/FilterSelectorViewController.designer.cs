@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Cyclorama
+namespace Cyclorama.Filter
 {
 	[Register ("FilterSelectorViewController")]
 	partial class FilterSelectorViewController

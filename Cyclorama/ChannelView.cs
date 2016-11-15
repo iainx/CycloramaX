@@ -4,6 +4,8 @@ using AppKit;
 using CoreImage;
 using Foundation;
 
+using Cyclorama.Filter;
+
 namespace Cyclorama
 {
     public partial class ChannelView : AppKit.NSView

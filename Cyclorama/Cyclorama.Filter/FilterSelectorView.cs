@@ -4,21 +4,21 @@ using System.Linq;
 using Foundation;
 using AppKit;
 
-namespace Cyclorama
+namespace Cyclorama.Filter
 {
-    public partial class FilterSelectorViewHeader : AppKit.NSView
+    public partial class FilterSelectorView : AppKit.NSView
     {
         #region Constructors
 
         // Called when created from unmanaged code
-        public FilterSelectorViewHeader (IntPtr handle) : base (handle)
+        public FilterSelectorView (IntPtr handle) : base (handle)
         {
             Initialize ();
         }
 
         // Called when created directly from a XIB file
         [Export ("initWithCoder:")]
-        public FilterSelectorViewHeader (NSCoder coder) : base (coder)
+        public FilterSelectorView (NSCoder coder) : base (coder)
         {
             Initialize ();
         }
@@ -29,10 +29,5 @@ namespace Cyclorama
         }
 
         #endregion
-
-        public string CategoryName {
-            get { return categoryNameLabel.StringValue; }
-            set { categoryNameLabel.StringValue = value; }
-        }
     }
 }

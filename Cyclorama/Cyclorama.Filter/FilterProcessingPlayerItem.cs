@@ -4,7 +4,7 @@ using AVFoundation;
 using CoreImage;
 using Foundation;
 
-namespace Cyclorama
+namespace Cyclorama.Filter
 {
     public class FilterProcessingPlayerItem : AVPlayerItem
     {

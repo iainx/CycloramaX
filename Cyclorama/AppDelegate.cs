@@ -3,6 +3,8 @@
 using AppKit;
 using Foundation;
 
+using Cyclorama.Filter;
+
 namespace Cyclorama
 {
     [Register ("AppDelegate")]

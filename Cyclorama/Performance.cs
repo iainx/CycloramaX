@@ -6,6 +6,8 @@ using AVFoundation;
 using CoreImage;
 using CoreMedia;
 
+using Cyclorama.Filter;
+
 namespace Cyclorama
 {
     public class Performance
@@ -26,7 +28,9 @@ namespace Cyclorama
             AVQueuePlayer queuePlayer = new AVQueuePlayer ();
             public AVPlayer Player { get { return queuePlayer; } }
 
+#pragma warning disable 0414
             AVPlayerLooper looper;
+#pragma warning restore 0414
             AVPlayerItem item;
             public AVPlayerItem Item {
                 get {

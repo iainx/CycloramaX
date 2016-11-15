@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Cyclorama.Filter\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -95,34 +96,34 @@
       <DependentUpon>PerformanceView.cs</DependentUpon>
     </Compile>
     <Compile Include="Performance.cs" />
-    <Compile Include="FilterProcessingPlayerItem.cs" />
     <Compile Include="ChannelView.cs" />
     <Compile Include="ChannelView.designer.cs">
       <DependentUpon>ChannelView.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilterSelectorView.cs" />
-    <Compile Include="FilterSelectorViewController.cs" />
-    <Compile Include="FilterSelectorView.designer.cs">
+    <Compile Include="Cyclorama.Filter\FilterModel.cs" />
+    <Compile Include="Cyclorama.Filter\FilterProcessingPlayerItem.cs" />
+    <Compile Include="Cyclorama.Filter\FilterSelectorPopover.cs" />
+    <Compile Include="Cyclorama.Filter\FilterSelectorView.cs" />
+    <Compile Include="Cyclorama.Filter\FilterSelectorView.designer.cs">
       <DependentUpon>FilterSelectorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilterSelectorViewController.designer.cs">
+    <Compile Include="Cyclorama.Filter\FilterSelectorViewController.cs" />
+    <Compile Include="Cyclorama.Filter\FilterSelectorViewController.designer.cs">
       <DependentUpon>FilterSelectorViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilterSelectorPopover.cs" />
-    <Compile Include="FilterModel.cs" />
-    <Compile Include="FilterSelectorViewItem.cs" />
-    <Compile Include="FilterSelectorViewItem.designer.cs">
-      <DependentUpon>FilterSelectorViewItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FilterSelectorViewHeader.cs" />
-    <Compile Include="FilterSelectorViewHeader.designer.cs">
+    <Compile Include="Cyclorama.Filter\FilterSelectorViewHeader.cs" />
+    <Compile Include="Cyclorama.Filter\FilterSelectorViewHeader.designer.cs">
       <DependentUpon>FilterSelectorViewHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cyclorama.Filter\FilterSelectorViewItem.cs" />
+    <Compile Include="Cyclorama.Filter\FilterSelectorViewItem.designer.cs">
+      <DependentUpon>FilterSelectorViewItem.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
-    <InterfaceDefinition Include="FilterSelectorViewItem.xib" />
-    <InterfaceDefinition Include="FilterSelectorViewHeader.xib" />
+    <InterfaceDefinition Include="Cyclorama.Filter\FilterSelectorViewHeader.xib" />
+    <InterfaceDefinition Include="Cyclorama.Filter\FilterSelectorViewItem.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\demo-bird.png" />
