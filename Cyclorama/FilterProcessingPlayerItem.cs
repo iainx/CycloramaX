@@ -14,23 +14,27 @@ namespace Cyclorama
         // Share the context between all the instances
         static CIContext context = new CIContext (new CIContextOptions ());
 
-        public FilterProcessingPlayerItem (AVAsset asset) : base (asset)
+        Performance.Channel channel;
+
+        public FilterProcessingPlayerItem (AVAsset asset, Performance.Channel channel) : base (asset)
         {
+            this.channel = channel;
             VideoComposition = AVVideoComposition.CreateVideoComposition (asset, ProcessImage);
         }
-
-        public CIFilter [] Filters { get; set; }
 
         void ProcessImage (AVAsynchronousCIImageFilteringRequest obj)
         {
             var sourceImage = obj.SourceImage;
 
-            if (Filters == null) {
+            if (channel.Filters == null) {
                 obj.Finish (sourceImage, context);
                 return;
             }
 
-            foreach (var filter in Filters) {
+            foreach (var filter in channel.Filters) {
+                if (filter == null) {
+                    continue;
+                }
                 filter.SetValueForKey (sourceImage, inputImageString);
                 sourceImage = (CIImage)filter.ValueForKey (outputImageString);
             }

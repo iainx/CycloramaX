@@ -712,17 +712,17 @@
             <objects>
                 <viewController storyboardIdentifier="FilterSelectorViewController" id="LZG-AU-YfB" customClass="FilterSelectorViewController" sceneMemberID="viewController">
                     <view key="view" id="fWT-ZD-3wO">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="307" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9by-Ia-Fy6">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="307" height="300"/>
                                 <clipView key="contentView" drawsBackground="NO" id="IiQ-8n-8py">
-                                    <rect key="frame" x="1" y="1" width="248" height="298"/>
+                                    <rect key="frame" x="1" y="1" width="305" height="298"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="aUs-Wt-vgy">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="298"/>
+                                        <collectionView selectable="YES" id="aUs-Wt-vgy">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="298"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="z2M-75-pmB">
                                                 <size key="itemSize" width="50" height="50"/>
@@ -730,6 +730,7 @@
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="LZG-AU-YfB" id="CpD-xM-Ys5"/>
+                                                <outlet property="delegate" destination="LZG-AU-YfB" id="y94-tP-m96"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>
@@ -758,7 +759,7 @@
                 </viewController>
                 <customObject id="kUh-Rz-B0J" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="701" y="513"/>
+            <point key="canvasLocation" x="729.5" y="513"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -885,9 +886,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="LeftChannelView" destination="hLM-hN-COS" id="Cgy-Om-lfr"/>
                         <outlet property="LeftPreview" destination="3cu-Rq-eKP" id="I3H-kJ-siE"/>
                         <outlet property="LeftPreviewHeightConstraint" destination="aWz-1c-IbM" id="xZ6-pX-GP5"/>
                         <outlet property="LeftPreviewWidthConstraint" destination="xnt-QQ-Y2C" id="NVM-Vy-0DK"/>
+                        <outlet property="RightChannelView" destination="UtC-S9-bnJ" id="QGm-1L-RQc"/>
                         <outlet property="RightPreview" destination="YUV-VB-hP5" id="gLa-81-AhB"/>
                         <outlet property="RightPreviewHeightConstraint" destination="ED1-gb-2fF" id="x43-4s-z2U"/>
                         <outlet property="RightPreviewWidthConstraint" destination="IHn-Vu-ejz" id="lcL-vi-6jF"/>

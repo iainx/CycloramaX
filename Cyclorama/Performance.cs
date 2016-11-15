@@ -19,7 +19,7 @@ namespace Cyclorama
                 }
                 set {
                     asset = value;
-                    Item = new FilterProcessingPlayerItem (value);
+                    Item = new FilterProcessingPlayerItem (value, this);
                 }
             }
 
@@ -39,6 +39,11 @@ namespace Cyclorama
             }
 
             public CIFilter [] Filters { get; set; }
+
+            public Channel ()
+            {
+                Filters = new CIFilter [2];
+            }
         }
 
         // More than 2 channels in the future

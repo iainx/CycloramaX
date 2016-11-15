@@ -114,10 +114,15 @@
     <Compile Include="FilterSelectorViewItem.designer.cs">
       <DependentUpon>FilterSelectorViewItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilterSelectorViewHeader.cs" />
+    <Compile Include="FilterSelectorViewHeader.designer.cs">
+      <DependentUpon>FilterSelectorViewHeader.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="FilterSelectorViewItem.xib" />
+    <InterfaceDefinition Include="FilterSelectorViewHeader.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\demo-bird.png" />

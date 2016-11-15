@@ -73,14 +73,9 @@ namespace Cyclorama
                 CIFilterCategory.Blur,
                 CIFilterCategory.ColorAdjustment,
                 CIFilterCategory.ColorEffect,
-                CIFilterCategory.DistortionEffect,
                 CIFilterCategory.HalftoneEffect,
-                CIFilterCategory.HighDynamicRange,
-                CIFilterCategory.Interlaced,
-                CIFilterCategory.NonSquarePixels,
                 CIFilterCategory.Sharpen,
-                CIFilterCategory.Stylize,
-                CIFilterCategory.TileEffect
+                CIFilterCategory.Stylize
             };
 
             foreach (var catName in cats) {

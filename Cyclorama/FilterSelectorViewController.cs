@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Foundation;
 using AppKit;
+using CoreGraphics;
 
 namespace Cyclorama
 {
-    public partial class FilterSelectorViewController : AppKit.NSViewController, INSCollectionViewDataSource
+    public partial class FilterSelectorViewController : AppKit.NSViewController, INSCollectionViewDataSource, INSCollectionViewDelegateFlowLayout
     {
         #region Constructors
 
@@ -49,8 +50,8 @@ namespace Cyclorama
         {
             try {
                 var flowLayout = new NSCollectionViewFlowLayout ();
-                flowLayout.ItemSize = new CoreGraphics.CGSize (128.0f, 96.0f);
-                flowLayout.SectionInset = new NSEdgeInsets (10.0f, 20.0f, 10.0f, 20.0f);
+                flowLayout.ItemSize = new CoreGraphics.CGSize (64.0f, 72.0f);
+                flowLayout.SectionInset = new NSEdgeInsets (30.0f, 20.0f, 30.0f, 20.0f);
                 flowLayout.MinimumInteritemSpacing = 20.0f;
                 flowLayout.MinimumLineSpacing = 20.0f;
 
@@ -64,6 +65,7 @@ namespace Cyclorama
             base.ViewDidLoad ();
         }
 
+        #region INSCollectionViewDataSource
         [Export ("numberOfSectionsInCollectionView:")]
         public nint GetNumberOfSections (NSCollectionView collectionView)
         {
@@ -73,7 +75,7 @@ namespace Cyclorama
 
         public nint GetNumberofItems (NSCollectionView collectionView, nint section)
         {
-            Console.WriteLine ($"Items: {FilterModel.Categories[(int)section].Filters.Count}");
+            Console.WriteLine ($"Items: {FilterModel.Categories [(int)section].Filters.Count}");
             return FilterModel.Categories [(int)section].Filters.Count;
         }
 
@@ -83,6 +85,52 @@ namespace Cyclorama
             var item = FilterModel.Categories [(int)indexPath.Section].Filters [(int)indexPath.Item];
             itemView.Item = item;
             return itemView;
+        }
+
+        [Export ("collectionView:viewForSupplementaryElementOfKind:atIndexPath:")]
+        public NSView MakeSupplementaryView (NSCollectionView collectionView, NSString kind, NSIndexPath path)
+        {
+            var itemView = (FilterSelectorViewHeader)collectionView.MakeSupplementaryView (kind, "FilterSelectorViewHeader", path);
+            var item = FilterModel.Categories [(int)path.Section];
+            itemView.CategoryName = item.Name;
+
+            return itemView;
+        }
+        #endregion
+
+        #region INSCollectionViewDelegateFlowLayout
+
+        [Export ("collectionView:layout:referenceSizeForHeaderInSection:")]
+        public CGSize ReferenceSizeForHeader (NSCollectionView collectionView, NSCollectionViewLayout layout, nint section)
+        {
+            return new CGSize (1000, 40);
+        }
+
+        #endregion
+
+        #region INSCollectionViewDelegate
+        [Export ("collectionView:didSelectItemsAtIndexPaths:")]
+        public void ItemsSelected (NSCollectionView collectionView, NSSet items)
+        {
+            var itemPath = (NSIndexPath)items.AnyObject;
+            var item = FilterModel.Categories [(int)itemPath.Section].Filters [(int)itemPath.Item];
+            OnFilterSelected (item);
+        }
+        #endregion
+
+        public event EventHandler<FilterSelectedArgs> FilterSelected;
+        void OnFilterSelected (FilterModel.Item item)
+        {
+            FilterSelected?.Invoke (this, new FilterSelectedArgs (item));
+        }
+    }
+
+    public class FilterSelectedArgs : EventArgs
+    {
+        public FilterModel.Item FilterItem { get; private set; }
+        internal FilterSelectedArgs (FilterModel.Item item)
+        {
+            FilterItem = item;
         }
     }
 }

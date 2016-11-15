@@ -16,16 +16,14 @@ namespace Cyclorama
 
         Performance performance;
 
-        AVAsset leftAsset, rightAsset;
-        AVPlayerItem leftItem, rightItem;
         public override void ViewDidLoad ()
         {
             base.ViewDidLoad ();
 
             performance = ((AppDelegate)NSApplication.SharedApplication.Delegate).Performance;
 
-            LeftPreview.Player = performance.LeftChannel.Player;
-            RightPreview.Player = performance.RightChannel.Player;
+            LeftChannelView.Channel = performance.LeftChannel;
+            RightChannelView.Channel = performance.RightChannel;
         }
 
         public override void ViewDidAppear ()

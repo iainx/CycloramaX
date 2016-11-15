@@ -10,11 +10,6 @@ namespace Cyclorama
     {
         #region Constructors
 
-        public FilterSelectorViewItem () : base ()
-        {
-            Console.WriteLine ("Is hit");
-        }
-
         // Called when created from unmanaged code
         public FilterSelectorViewItem (IntPtr handle) : base (handle)
         {
@@ -43,8 +38,10 @@ namespace Cyclorama
 
             set {
                 item = value;
-                //Image.Image = item.ImageThumbnail;
+                Image.Image = item.ImageThumbnail;
                 FilterName.StringValue = item.Name;
+
+                Console.WriteLine ($"{item.FilterName} - {item.Name}");
             }
         }
     }

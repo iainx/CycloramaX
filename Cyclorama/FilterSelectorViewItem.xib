@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,51 +14,35 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="2" customClass="FilterSelectorViewItem">
+        <customView id="4ak-no-mdI">
             <rect key="frame" x="0.0" y="0.0" width="120" height="116"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="4ak-no-mdI">
-                    <rect key="frame" x="0.0" y="0.0" width="120" height="116"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pkn-Xx-oDY">
-                            <rect key="frame" x="-2" y="0.0" width="124" height="14"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="120" id="18e-0Z-lw7"/>
-                            </constraints>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="GIL-Qr-KYx">
-                                <font key="font" metaFont="smallSystem"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hd3-7Z-rde">
-                            <rect key="frame" x="0.0" y="20" width="120" height="96"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="120" id="1js-09-yb8"/>
-                                <constraint firstAttribute="height" constant="96" id="qfG-mj-E8N"/>
-                            </constraints>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="E75-dZ-GBU"/>
-                        </imageView>
-                    </subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pkn-Xx-oDY">
+                    <rect key="frame" x="-2" y="0.0" width="124" height="13"/>
                     <constraints>
-                        <constraint firstItem="Pkn-Xx-oDY" firstAttribute="top" secondItem="Hd3-7Z-rde" secondAttribute="bottom" constant="6" id="26E-aW-wDr"/>
-                        <constraint firstItem="Hd3-7Z-rde" firstAttribute="leading" secondItem="4ak-no-mdI" secondAttribute="leading" id="ClT-wX-yMB"/>
-                        <constraint firstItem="Pkn-Xx-oDY" firstAttribute="centerX" secondItem="4ak-no-mdI" secondAttribute="centerX" id="IQp-Dr-Ei2"/>
-                        <constraint firstAttribute="bottom" secondItem="Pkn-Xx-oDY" secondAttribute="bottom" id="LaH-Qu-3aa"/>
-                        <constraint firstItem="Hd3-7Z-rde" firstAttribute="top" secondItem="4ak-no-mdI" secondAttribute="top" id="VHj-Xf-Sxo"/>
-                        <constraint firstAttribute="trailing" secondItem="Hd3-7Z-rde" secondAttribute="trailing" id="W2O-d6-aVl"/>
+                        <constraint firstAttribute="width" constant="120" id="18e-0Z-lw7"/>
                     </constraints>
-                </customView>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="GIL-Qr-KYx">
+                        <font key="font" metaFont="system" size="10"/>
+                        <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hd3-7Z-rde">
+                    <rect key="frame" x="0.0" y="19" width="120" height="97"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="E75-dZ-GBU"/>
+                </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="4ak-no-mdI" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="2Tq-p5-bdj"/>
-                <constraint firstItem="4ak-no-mdI" firstAttribute="top" secondItem="2" secondAttribute="top" id="Mng-pc-Kdb"/>
+                <constraint firstItem="Pkn-Xx-oDY" firstAttribute="top" secondItem="Hd3-7Z-rde" secondAttribute="bottom" constant="6" id="26E-aW-wDr"/>
+                <constraint firstItem="Hd3-7Z-rde" firstAttribute="leading" secondItem="4ak-no-mdI" secondAttribute="leading" id="ClT-wX-yMB"/>
+                <constraint firstItem="Pkn-Xx-oDY" firstAttribute="centerX" secondItem="4ak-no-mdI" secondAttribute="centerX" id="IQp-Dr-Ei2"/>
+                <constraint firstAttribute="bottom" secondItem="Pkn-Xx-oDY" secondAttribute="bottom" id="LaH-Qu-3aa"/>
+                <constraint firstItem="Hd3-7Z-rde" firstAttribute="top" secondItem="4ak-no-mdI" secondAttribute="top" id="VHj-Xf-Sxo"/>
+                <constraint firstAttribute="trailing" secondItem="Hd3-7Z-rde" secondAttribute="trailing" id="W2O-d6-aVl"/>
             </constraints>
-            <connections>
-                <outlet property="view" destination="4ak-no-mdI" id="qzM-Bn-b7t"/>
-            </connections>
-            <point key="canvasLocation" x="-20" y="99"/>
         </customView>
+        <collectionViewItem id="v4s-CI-KrA" customClass="FilterSelectorViewItem"/>
     </objects>
 </document>

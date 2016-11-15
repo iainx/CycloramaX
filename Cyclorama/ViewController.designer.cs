@@ -13,6 +13,9 @@ namespace Cyclorama
 	partial class ViewController
 	{
 		[Outlet]
+		Cyclorama.ChannelView LeftChannelView { get; set; }
+
+		[Outlet]
 		Cyclorama.PlaybackPreviewView LeftPreview { get; set; }
 
 		[Outlet]
@@ -20,6 +23,9 @@ namespace Cyclorama
 
 		[Outlet]
 		AppKit.NSLayoutConstraint LeftPreviewWidthConstraint { get; set; }
+
+		[Outlet]
+		Cyclorama.ChannelView RightChannelView { get; set; }
 
 		[Outlet]
 		Cyclorama.PlaybackPreviewView RightPreview { get; set; }
@@ -37,11 +43,6 @@ namespace Cyclorama
 				LeftPreview = null;
 			}
 
-			if (RightPreview != null) {
-				RightPreview.Dispose ();
-				RightPreview = null;
-			}
-
 			if (LeftPreviewHeightConstraint != null) {
 				LeftPreviewHeightConstraint.Dispose ();
 				LeftPreviewHeightConstraint = null;
@@ -52,6 +53,11 @@ namespace Cyclorama
 				LeftPreviewWidthConstraint = null;
 			}
 
+			if (RightPreview != null) {
+				RightPreview.Dispose ();
+				RightPreview = null;
+			}
+
 			if (RightPreviewHeightConstraint != null) {
 				RightPreviewHeightConstraint.Dispose ();
 				RightPreviewHeightConstraint = null;
@@ -60,6 +66,16 @@ namespace Cyclorama
 			if (RightPreviewWidthConstraint != null) {
 				RightPreviewWidthConstraint.Dispose ();
 				RightPreviewWidthConstraint = null;
+			}
+
+			if (LeftChannelView != null) {
+				LeftChannelView.Dispose ();
+				LeftChannelView = null;
+			}
+
+			if (RightChannelView != null) {
+				RightChannelView.Dispose ();
+				RightChannelView = null;
 			}
 		}
 	}
