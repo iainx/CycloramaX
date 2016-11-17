@@ -8,7 +8,7 @@ using Cyclorama.Filter;
 
 namespace Cyclorama
 {
-    public partial class ChannelView : AppKit.NSView
+    public partial class ChannelView : NSView
     {
         #region Constructors
 
@@ -44,6 +44,13 @@ namespace Cyclorama
         }
 
         #endregion
+
+        public override void AwakeFromNib ()
+        {
+            PreviewView.FilePathDropped += (sender, e) => {
+                channel.FilePath = e.FilePath;
+            };
+        }
 
         partial void SelectFirstFilter (NSObject sender)
         {

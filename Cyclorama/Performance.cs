@@ -14,6 +14,17 @@ namespace Cyclorama
     {
         public class Channel
         {
+            string filePath;
+            public string FilePath {
+                get {
+                    return filePath;
+                }
+
+                set {
+                    filePath = value;
+                    Asset = AVAsset.FromUrl (NSUrl.FromFilename (value));
+                }
+            }
             AVAsset asset;
             public AVAsset Asset {
                 get {
@@ -25,7 +36,7 @@ namespace Cyclorama
                 }
             }
 
-            AVQueuePlayer queuePlayer = new AVQueuePlayer ();
+            AVQueuePlayer queuePlayer;
             public AVPlayer Player { get { return queuePlayer; } }
 
 #pragma warning disable 0414
@@ -38,7 +49,11 @@ namespace Cyclorama
                 }
                 set {
                     item = value;
-                    looper = new AVPlayerLooper (queuePlayer, value, CMTimeRange.InvalidRange);
+                    if (looper == null) {
+                        looper = new AVPlayerLooper (queuePlayer, value, CMTimeRange.InvalidRange);
+                    } else {
+                        queuePlayer.ReplaceCurrentItemWithPlayerItem (value);
+                    }
                 }
             }
 
@@ -47,6 +62,8 @@ namespace Cyclorama
             public Channel ()
             {
                 Filters = new CIFilter [2];
+                queuePlayer = new AVQueuePlayer ();
+                queuePlayer.Muted = true;
             }
         }
 

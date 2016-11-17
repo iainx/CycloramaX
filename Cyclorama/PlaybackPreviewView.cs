@@ -15,6 +15,49 @@ namespace Cyclorama
 		public PlaybackPreviewView (IntPtr handle) : base (handle)
 		{
             ControlsStyle = AVPlayerViewControlsStyle.None;
+
+            RegisterForDraggedTypes (new string [] { NSPasteboard.NSFilenamesType, NSPasteboard.NSUrlType });
 		}
+
+        public override NSDragOperation DraggingEntered (NSDraggingInfo sender)
+        {
+            var pboard = sender.DraggingPasteboard;
+
+            foreach (var type in pboard.Types) {
+                if (!string.Equals (type, NSPasteboard.NSFilenamesType) && !string.Equals (type, "public.file-url")) {
+                    return NSDragOperation.None;
+                } else {
+                    break;
+                }
+            }
+
+            return NSDragOperation.Copy;
+        }
+
+        public override bool PerformDragOperation (NSDraggingInfo sender)
+        {
+            var pboard = sender.DraggingPasteboard;
+            var files = (NSArray)pboard.GetPropertyListForType (NSPasteboard.NSFilenamesType);
+
+            if (files.Count == 0) {
+                return false;
+            }
+
+            var filePath = (string) files.GetItem<NSString> (0);
+
+            FilePathDropped?.Invoke (this, new FilePathDroppedArgs (filePath));
+            return true;
+        }
+
+        public event EventHandler<FilePathDroppedArgs> FilePathDropped;
 	}
+
+    public class FilePathDroppedArgs : EventArgs
+    {
+        public string FilePath { get; private set; }
+        public FilePathDroppedArgs (string filePath)
+        {
+            FilePath = filePath;
+        }
+    }
 }

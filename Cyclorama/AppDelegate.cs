@@ -8,7 +8,7 @@ using Cyclorama.Filter;
 namespace Cyclorama
 {
     [Register ("AppDelegate")]
-    public class AppDelegate : NSApplicationDelegate
+    public class AppDelegate : NSApplicationDelegate, INSTouchBarDelegate
     {
         public NSWindowController PerformanceWindowController { get; private set; }
 
@@ -27,6 +27,26 @@ namespace Cyclorama
             PerformanceWindowController.Window.OrderFront (null);
 
             Console.WriteLine ($"{FilterModel.Categories.Count}");
+
+            NSApplication.SharedApplication.SetTouchBar (MakeTouchBar ());
+        }
+
+        NSTouchBar MakeTouchBar ()
+        {
+            var tb = new NSTouchBar ();
+            tb.Delegate = this;
+
+            tb.DefaultItemIdentifiers = new string [] { "Test" };
+
+            return tb;
+        }
+
+        [Export ("touchBar:makeItemForIdentifier:")]
+        public NSTouchBarItem MakeItem (NSTouchBar touchBar, string identifier)
+        {
+            var item = new NSTouchBarItem ("Test");
+
+            return item;
         }
 
         public override void WillTerminate (NSNotification notification)
