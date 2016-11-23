@@ -1,4 +1,4 @@
-﻿namespace Cyclorama.Filter
+﻿namespace Cyclorama.FilterSelector
 {
 
     // Should subclass AppKit.NSView

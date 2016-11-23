@@ -66,7 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Cyclorama.Filter\" />
+    <Folder Include="Cyclorama.FilterSelector\" />
+    <Folder Include="Cyclorama.Midi\" />
+    <Folder Include="Cyclorama.Filters\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -100,33 +102,36 @@
     <Compile Include="ChannelView.designer.cs">
       <DependentUpon>ChannelView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cyclorama.Filter\FilterModel.cs" />
-    <Compile Include="Cyclorama.Filter\FilterProcessingPlayerItem.cs" />
-    <Compile Include="Cyclorama.Filter\FilterSelectorPopover.cs" />
-    <Compile Include="Cyclorama.Filter\FilterSelectorView.cs" />
-    <Compile Include="Cyclorama.Filter\FilterSelectorView.designer.cs">
+    <Compile Include="Cyclorama.FilterSelector\FilterModel.cs" />
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorPopover.cs" />
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorView.cs" />
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorView.designer.cs">
       <DependentUpon>FilterSelectorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cyclorama.Filter\FilterSelectorViewController.cs" />
-    <Compile Include="Cyclorama.Filter\FilterSelectorViewController.designer.cs">
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorViewController.cs" />
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorViewController.designer.cs">
       <DependentUpon>FilterSelectorViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cyclorama.Filter\FilterSelectorViewHeader.cs" />
-    <Compile Include="Cyclorama.Filter\FilterSelectorViewHeader.designer.cs">
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorViewHeader.cs" />
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorViewHeader.designer.cs">
       <DependentUpon>FilterSelectorViewHeader.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cyclorama.Filter\FilterSelectorViewItem.cs" />
-    <Compile Include="Cyclorama.Filter\FilterSelectorViewItem.designer.cs">
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorViewItem.cs" />
+    <Compile Include="Cyclorama.FilterSelector\FilterSelectorViewItem.designer.cs">
       <DependentUpon>FilterSelectorViewItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cyclorama.Midi\MidiProcessor.cs" />
+    <Compile Include="Cyclorama.Filters\ChromaKeyFilter.cs" />
+    <Compile Include="Cyclorama.Filters\FilterProcessingPlayerItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
-    <InterfaceDefinition Include="Cyclorama.Filter\FilterSelectorViewHeader.xib" />
-    <InterfaceDefinition Include="Cyclorama.Filter\FilterSelectorViewItem.xib" />
+    <InterfaceDefinition Include="Cyclorama.FilterSelector\FilterSelectorViewHeader.xib" />
+    <InterfaceDefinition Include="Cyclorama.FilterSelector\FilterSelectorViewItem.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\demo-bird.png" />
+    <BundleResource Include="Resources\GSChromaKeyFilter.cikernel" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using Foundation;
 using AppKit;
 
-namespace Cyclorama.Filter
+namespace Cyclorama.FilterSelector
 {
     public partial class FilterSelectorViewHeader : AppKit.NSView
     {

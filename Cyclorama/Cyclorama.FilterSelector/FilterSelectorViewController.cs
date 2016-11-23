@@ -5,7 +5,7 @@ using Foundation;
 using AppKit;
 using CoreGraphics;
 
-namespace Cyclorama.Filter
+namespace Cyclorama.FilterSelector
 {
     public partial class FilterSelectorViewController : AppKit.NSViewController, INSCollectionViewDataSource, INSCollectionViewDelegateFlowLayout
     {

@@ -3,7 +3,8 @@
 using AppKit;
 using Foundation;
 
-using Cyclorama.Filter;
+using Cyclorama.Filters;
+using Cyclorama.FilterSelector;
 
 namespace Cyclorama
 {

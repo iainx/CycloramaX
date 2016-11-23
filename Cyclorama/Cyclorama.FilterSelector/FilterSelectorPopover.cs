@@ -2,7 +2,7 @@
 
 using AppKit;
 
-namespace Cyclorama.Filter
+namespace Cyclorama.FilterSelector
 {
     public class FilterSelectorPopover : NSPopover
     {

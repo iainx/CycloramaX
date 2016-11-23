@@ -7,19 +7,19 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Cyclorama.Filter
+namespace Cyclorama.FilterSelector
 {
-	[Register ("FilterSelectorViewController")]
-	partial class FilterSelectorViewController
+	[Register ("FilterSelectorViewHeader")]
+	partial class FilterSelectorViewHeader
 	{
 		[Outlet]
-		AppKit.NSCollectionView FilterCollectionView { get; set; }
+		AppKit.NSTextField categoryNameLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (FilterCollectionView != null) {
-				FilterCollectionView.Dispose ();
-				FilterCollectionView = null;
+			if (categoryNameLabel != null) {
+				categoryNameLabel.Dispose ();
+				categoryNameLabel = null;
 			}
 		}
 	}

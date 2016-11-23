@@ -6,7 +6,7 @@ using AVFoundation;
 using CoreImage;
 using CoreMedia;
 
-using Cyclorama.Filter;
+using Cyclorama.Filters;
 
 namespace Cyclorama
 {

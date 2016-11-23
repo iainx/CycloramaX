@@ -4,7 +4,7 @@ using AppKit;
 using CoreImage;
 using Foundation;
 
-using Cyclorama.Filter;
+using Cyclorama.FilterSelector;
 
 namespace Cyclorama
 {
