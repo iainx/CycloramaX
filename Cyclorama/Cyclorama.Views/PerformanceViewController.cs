@@ -40,7 +40,9 @@ namespace Cyclorama.Views
                 MainView.RightVideo.Opacity = (performance.CrossfaderActive ? performance.CrossfaderValue : 1.0f);
             };
             performance.CrossfaderChanged += (sender, e) => {
-                MainView.RightVideo.Opacity = performance.CrossfaderValue;
+                if (performance.CrossfaderActive) {
+                    MainView.RightVideo.Opacity = performance.CrossfaderValue;
+                }
             };
         }
 	}
