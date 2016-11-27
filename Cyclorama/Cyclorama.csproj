@@ -128,12 +128,21 @@
     <Compile Include="Cyclorama.Views\ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cyclorama.Views\ControlBarView.cs" />
+    <Compile Include="Cyclorama.Views\ControlBarViewController.cs" />
+    <Compile Include="Cyclorama.Views\ControlBarView.designer.cs">
+      <DependentUpon>ControlBarView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cyclorama.Views\ControlBarViewController.designer.cs">
+      <DependentUpon>ControlBarViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Cyclorama.FilterSelector\FilterSelectorViewHeader.xib" />
     <InterfaceDefinition Include="Cyclorama.FilterSelector\FilterSelectorViewItem.xib" />
     <InterfaceDefinition Include="Cyclorama.Views\ChannelView.xib" />
+    <InterfaceDefinition Include="Cyclorama.Views\ControlBarView.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\demo-bird.png" />

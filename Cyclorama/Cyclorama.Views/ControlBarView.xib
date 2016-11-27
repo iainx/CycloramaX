@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ControlBarViewController">
+            <connections>
+                <outlet property="Channel1Toggle" destination="r0w-0W-TiP" id="OOp-cf-Klc"/>
+                <outlet property="Channel2Toggle" destination="Y89-4q-els" id="DVc-I3-qBu"/>
+                <outlet property="CrossFader" destination="5z3-Ev-rpt" id="ojs-7V-jGF"/>
+                <outlet property="CrossfaderMoved" destination="5z3-Ev-rpt" id="uOa-Ao-B3P"/>
+                <outlet property="CrossfaderToggle" destination="Vs0-vm-8P1" id="nmc-PW-Sbs"/>
+                <outlet property="view" destination="4" id="17"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="4" customClass="ControlBarView">
+            <rect key="frame" x="0.0" y="0.0" width="563" height="77"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r0w-0W-TiP">
+                    <rect key="frame" x="14" y="32" width="100" height="32"/>
+                    <buttonCell key="cell" type="push" title="Channel 1" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kb6-vg-aUZ">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="Channel1Activated:" target="-2" id="5Si-J6-Tcg"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y89-4q-els">
+                    <rect key="frame" x="448" y="32" width="101" height="32"/>
+                    <buttonCell key="cell" type="push" title="Channel 2" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tVm-Ap-NQC">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="Channel2Activated:" target="-2" id="FpC-Nx-hs1"/>
+                    </connections>
+                </button>
+                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5z3-Ev-rpt">
+                    <rect key="frame" x="114" y="40" width="334" height="19"/>
+                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="P7E-RG-1gJ"/>
+                    <connections>
+                        <action selector="CrossfaderMoved:" target="-2" id="g3E-cm-MQK"/>
+                    </connections>
+                </slider>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="Vs0-vm-8P1">
+                    <rect key="frame" x="237" y="18" width="89" height="18"/>
+                    <buttonCell key="cell" type="check" title="Crossfader" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gyf-y4-JNL">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="CrossfaderActivated:" target="-2" id="yoy-yo-X7U"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Y89-4q-els" firstAttribute="top" secondItem="4" secondAttribute="top" constant="17" id="1wf-nl-7nD"/>
+                <constraint firstItem="Y89-4q-els" firstAttribute="leading" secondItem="5z3-Ev-rpt" secondAttribute="trailing" constant="8" id="63C-c6-oKC"/>
+                <constraint firstItem="5z3-Ev-rpt" firstAttribute="centerX" secondItem="4" secondAttribute="centerX" id="FPo-UW-2xs"/>
+                <constraint firstItem="r0w-0W-TiP" firstAttribute="top" secondItem="4" secondAttribute="top" constant="17" id="MpT-zg-reF"/>
+                <constraint firstAttribute="height" constant="77" id="d7C-cq-hIk"/>
+                <constraint firstItem="5z3-Ev-rpt" firstAttribute="top" secondItem="4" secondAttribute="top" constant="20" id="fYq-0R-rwZ"/>
+                <constraint firstAttribute="bottom" secondItem="Vs0-vm-8P1" secondAttribute="bottom" constant="20" id="hS0-af-sh3"/>
+                <constraint firstAttribute="trailing" secondItem="Y89-4q-els" secondAttribute="trailing" constant="20" id="jHP-bV-QfU"/>
+                <constraint firstItem="Vs0-vm-8P1" firstAttribute="top" secondItem="5z3-Ev-rpt" secondAttribute="bottom" constant="8" id="nBF-JP-dHu"/>
+                <constraint firstItem="Vs0-vm-8P1" firstAttribute="centerX" secondItem="4" secondAttribute="centerX" id="orc-Pp-swG"/>
+                <constraint firstItem="r0w-0W-TiP" firstAttribute="leading" secondItem="4" secondAttribute="leading" constant="20" id="y6D-vF-sdm"/>
+                <constraint firstItem="5z3-Ev-rpt" firstAttribute="leading" secondItem="r0w-0W-TiP" secondAttribute="trailing" constant="8" id="zPk-Vs-qAP"/>
+            </constraints>
+            <point key="canvasLocation" x="92.5" y="58.5"/>
+        </customView>
+    </objects>
+</document>

@@ -12,6 +12,16 @@ namespace Cyclorama.Views
 	public partial class PerformanceView : NSView
 	{
         AVPlayerLayer leftVideo, rightVideo;
+        public AVPlayerLayer LeftVideo {
+            get {
+                return leftVideo;
+            }
+        }
+        public AVPlayerLayer RightVideo {
+            get {
+                return rightVideo;
+            }
+        }
 
         public AVPlayer LeftPlayer { 
             get {
@@ -38,8 +48,6 @@ namespace Cyclorama.Views
 
             rightVideo = new AVPlayerLayer ();
             rightVideo.Name = "rightVideo";
-
-            rightVideo.Opacity = 0.5f;
 		}
 
         public override void ViewDidMoveToWindow ()
@@ -59,11 +67,6 @@ namespace Cyclorama.Views
             Layer.AddSublayer (rightVideo);
 
             base.ViewDidMoveToWindow ();
-        }
-
-        public float CrossfaderPosition {
-            get { return rightVideo.Opacity; }
-            set { rightVideo.Opacity = value; }
         }
 	}
 }

@@ -57,6 +57,18 @@ namespace Cyclorama
                 }
             }
 
+            bool active;
+            public bool Active {
+                get {
+                    return active;
+                }
+                set {
+                    active = value;
+                    ActiveChanged?.Invoke (this, EventArgs.Empty);
+                }
+            }
+            public event EventHandler ActiveChanged;
+
             public CIFilter [] Filters { get; set; }
 
             public bool UseChromaKey { get; set; }
@@ -77,6 +89,7 @@ namespace Cyclorama
                 Filters = new CIFilter [2];
                 UseChromaKey = false;
                 KeyColor = CIColor.BlackColor;
+                Active = true;
 
                 queuePlayer = new AVQueuePlayer ();
                 queuePlayer.Muted = true;
@@ -96,9 +109,33 @@ namespace Cyclorama
             }
         }
 
+        bool crossfaderActive;
+        public bool CrossfaderActive {
+            get {
+                return crossfaderActive;
+            }
+
+            set {
+                crossfaderActive = value;
+                CrossfaderActiveChanged?.Invoke (this, EventArgs.Empty);
+            }
+        }
+        public event EventHandler CrossfaderActiveChanged;
+
+        float crossfaderValue = 0.5f;
+        public float CrossfaderValue {
+            get {
+                return crossfaderValue;
+            }
+            set {
+                crossfaderValue = value;
+                CrossfaderChanged?.Invoke (this, EventArgs.Empty);
+            }
+        }
+        public event EventHandler CrossfaderChanged;
+
         public Performance ()
         {
-            Console.WriteLine ("Created performance");
             Channels = new List<Channel> ();
 
             Channels.Add (new Channel ());

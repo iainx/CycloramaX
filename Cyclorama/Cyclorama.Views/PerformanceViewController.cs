@@ -25,6 +25,23 @@ namespace Cyclorama.Views
             performance = ((AppDelegate)NSApplication.SharedApplication.Delegate).Performance;
             MainView.LeftPlayer = performance.LeftChannel.Player;
             MainView.RightPlayer = performance.RightChannel.Player;
+
+            if (performance.CrossfaderActive) {
+                MainView.RightVideo.Opacity = performance.CrossfaderValue;
+            }
+
+            performance.LeftChannel.ActiveChanged += (sender, e) => {
+                MainView.LeftVideo.Hidden = !performance.LeftChannel.Active;
+            };
+            performance.RightChannel.ActiveChanged += (sender, e) => {
+                MainView.RightVideo.Hidden = !performance.RightChannel.Active;
+            };
+            performance.CrossfaderActiveChanged += (sender, e) => {
+                MainView.RightVideo.Opacity = (performance.CrossfaderActive ? performance.CrossfaderValue : 1.0f);
+            };
+            performance.CrossfaderChanged += (sender, e) => {
+                MainView.RightVideo.Opacity = performance.CrossfaderValue;
+            };
         }
 	}
 }
