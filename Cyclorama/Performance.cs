@@ -59,9 +59,25 @@ namespace Cyclorama
 
             public CIFilter [] Filters { get; set; }
 
+            public bool UseChromaKey { get; set; }
+            CIColor keyColor;
+            public CIColor KeyColor {
+                get {
+                    return keyColor;
+                }
+                set {
+                    keyColor = value;
+                    KeyColorChanged?.Invoke (this, EventArgs.Empty);
+                }
+            }
+            public event EventHandler KeyColorChanged;
+
             public Channel ()
             {
                 Filters = new CIFilter [2];
+                UseChromaKey = false;
+                KeyColor = CIColor.BlackColor;
+
                 queuePlayer = new AVQueuePlayer ();
                 queuePlayer.Muted = true;
             }

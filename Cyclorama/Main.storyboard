@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -650,7 +648,7 @@
                     <window key="window" title="Cyclorama" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="720" height="314"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -766,139 +764,13 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1360" height="557"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <customView identifier="Main.LeftChannel" translatesAutoresizingMaskIntoConstraints="NO" id="hLM-hN-COS" userLabel="Left Channel" customClass="ChannelView">
-                                <rect key="frame" x="20" y="20" width="640" height="517"/>
-                                <subviews>
-                                    <customView identifier="Main.LeftChannel.Preview" translatesAutoresizingMaskIntoConstraints="NO" id="3cu-Rq-eKP" customClass="PlaybackPreviewView">
-                                        <rect key="frame" x="0.0" y="37" width="640" height="480"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="480" id="aWz-1c-IbM"/>
-                                            <constraint firstAttribute="width" constant="640" id="xnt-QQ-Y2C"/>
-                                        </constraints>
-                                        <accessibility description="Left Video Preview" help="The lefthand video preview" identifier="Main.LeftChannel.Preview"/>
-                                    </customView>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="goS-RU-Pyc">
-                                        <rect key="frame" x="114" y="1" width="92" height="32"/>
-                                        <buttonCell key="cell" type="push" title="No Filter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OfR-UM-Cz4">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="SelectFirstFilter:" target="hLM-hN-COS" id="18K-N4-of8"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c1s-V6-jKg">
-                                        <rect key="frame" x="434" y="1" width="92" height="32"/>
-                                        <buttonCell key="cell" type="push" title="No Filter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LiG-1t-RCq">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="SelectSecondFilter:" target="hLM-hN-COS" id="zUU-wr-eYd"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="goS-RU-Pyc" secondAttribute="bottom" constant="8" id="H7D-Ek-jyv"/>
-                                    <constraint firstAttribute="trailing" secondItem="3cu-Rq-eKP" secondAttribute="trailing" id="JmX-vK-xkV"/>
-                                    <constraint firstItem="3cu-Rq-eKP" firstAttribute="top" secondItem="hLM-hN-COS" secondAttribute="top" id="OLh-9g-v0X"/>
-                                    <constraint firstAttribute="centerX" secondItem="goS-RU-Pyc" secondAttribute="centerX" constant="160" id="Wok-il-k9B"/>
-                                    <constraint firstItem="c1s-V6-jKg" firstAttribute="centerX" secondItem="hLM-hN-COS" secondAttribute="centerX" constant="160" id="X2a-2T-z2d"/>
-                                    <constraint firstAttribute="bottom" secondItem="c1s-V6-jKg" secondAttribute="bottom" constant="8" id="hVB-4j-U1V"/>
-                                    <constraint firstItem="3cu-Rq-eKP" firstAttribute="leading" secondItem="hLM-hN-COS" secondAttribute="leading" id="kKG-At-Z3g"/>
-                                    <constraint firstItem="c1s-V6-jKg" firstAttribute="top" secondItem="3cu-Rq-eKP" secondAttribute="bottom" constant="8" id="lpn-CV-6ul"/>
-                                    <constraint firstItem="goS-RU-Pyc" firstAttribute="top" secondItem="3cu-Rq-eKP" secondAttribute="bottom" constant="8" id="ujA-4P-J5H"/>
-                                </constraints>
-                                <accessibility description="Left Channel" help="Left channel preview" identifier="Main.LeftChannel"/>
-                                <connections>
-                                    <outlet property="FilterSelector1" destination="goS-RU-Pyc" id="5M2-iU-GzB"/>
-                                    <outlet property="FilterSelector2" destination="c1s-V6-jKg" id="Kof-5Q-pIK"/>
-                                    <outlet property="PreviewView" destination="3cu-Rq-eKP" id="N7m-0x-Jxk"/>
-                                    <outlet property="firstFilter" destination="goS-RU-Pyc" id="nD1-Bx-tJh"/>
-                                    <outlet property="previewView" destination="3cu-Rq-eKP" id="UId-RH-4Aa"/>
-                                    <outlet property="secondFilter" destination="c1s-V6-jKg" id="IMm-H7-1W1"/>
-                                </connections>
-                            </customView>
-                            <customView identifier="Main.RightChannel" translatesAutoresizingMaskIntoConstraints="NO" id="UtC-S9-bnJ" userLabel="Right Channel" customClass="ChannelView">
-                                <rect key="frame" x="700" y="20" width="640" height="517"/>
-                                <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QRI-A3-wmi">
-                                        <rect key="frame" x="154" y="1" width="92" height="32"/>
-                                        <buttonCell key="cell" type="push" title="No Filter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YJS-uM-L0I">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="SelectFirstFilter:" target="UtC-S9-bnJ" id="QIj-to-z4e"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CTW-52-gLh">
-                                        <rect key="frame" x="434" y="1" width="92" height="32"/>
-                                        <buttonCell key="cell" type="push" title="No Filter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Bo-QZ-ztt">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="SelectSecondFilter:" target="UtC-S9-bnJ" id="H2s-4S-4dT"/>
-                                        </connections>
-                                    </button>
-                                    <customView identifier="Main.RightPreview" translatesAutoresizingMaskIntoConstraints="NO" id="YUV-VB-hP5" customClass="PlaybackPreviewView">
-                                        <rect key="frame" x="0.0" y="37" width="640" height="480"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="480" id="ED1-gb-2fF"/>
-                                            <constraint firstAttribute="width" constant="640" id="IHn-Vu-ejz"/>
-                                        </constraints>
-                                        <accessibility description="Right Video Preview" help="The righthand video preview" identifier="Main.RightPreview"/>
-                                    </customView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="QRI-A3-wmi" secondAttribute="bottom" constant="8" id="6j2-ki-Ytm"/>
-                                    <constraint firstAttribute="centerX" secondItem="QRI-A3-wmi" secondAttribute="centerX" constant="120" id="9Tj-Xx-apM"/>
-                                    <constraint firstItem="QRI-A3-wmi" firstAttribute="top" secondItem="YUV-VB-hP5" secondAttribute="bottom" constant="8" id="Vm7-pO-fhk"/>
-                                    <constraint firstItem="CTW-52-gLh" firstAttribute="top" secondItem="YUV-VB-hP5" secondAttribute="bottom" constant="8" id="X6e-mY-UcT"/>
-                                    <constraint firstAttribute="bottom" secondItem="CTW-52-gLh" secondAttribute="bottom" constant="8" id="aYa-D6-yxh"/>
-                                    <constraint firstItem="YUV-VB-hP5" firstAttribute="leading" secondItem="UtC-S9-bnJ" secondAttribute="leading" id="c2I-qC-tOJ"/>
-                                    <constraint firstItem="CTW-52-gLh" firstAttribute="centerX" secondItem="UtC-S9-bnJ" secondAttribute="centerX" constant="160" id="jkI-i7-TTk"/>
-                                </constraints>
-                                <accessibility description="Right channel" help="Right chanel preview and filters" identifier="Main.RightChannel"/>
-                                <connections>
-                                    <outlet property="FilterSelector1" destination="QRI-A3-wmi" id="zbe-Hb-Zig"/>
-                                    <outlet property="FilterSelector2" destination="CTW-52-gLh" id="aAY-FO-RnU"/>
-                                    <outlet property="PreviewView" destination="YUV-VB-hP5" id="7wf-XO-nBK"/>
-                                    <outlet property="firstFilter" destination="QRI-A3-wmi" id="o0B-a6-bz3"/>
-                                    <outlet property="previewView" destination="YUV-VB-hP5" id="EMv-wG-JJr"/>
-                                    <outlet property="secondFilter" destination="CTW-52-gLh" id="REM-Xe-9h5"/>
-                                </connections>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="UtC-S9-bnJ" secondAttribute="trailing" constant="20" id="8Rz-Nw-5H2"/>
-                            <constraint firstItem="hLM-hN-COS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="NEA-UU-6c4"/>
-                            <constraint firstAttribute="centerX" secondItem="hLM-hN-COS" secondAttribute="trailing" constant="20" id="Sdh-O6-aFM"/>
-                            <constraint firstAttribute="bottom" secondItem="UtC-S9-bnJ" secondAttribute="bottom" constant="20" id="ev1-ms-CdZ"/>
-                            <constraint firstItem="UtC-S9-bnJ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" constant="20" id="f2z-CD-w24"/>
-                            <constraint firstAttribute="bottom" secondItem="hLM-hN-COS" secondAttribute="bottom" constant="20" id="gHW-j3-1mp"/>
-                            <constraint firstItem="hLM-hN-COS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="oec-bQ-aJQ"/>
-                            <constraint firstItem="UtC-S9-bnJ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="uqL-1S-rrf"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="0.0" width="720" height="314"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <connections>
-                        <outlet property="LeftChannelView" destination="hLM-hN-COS" id="Cgy-Om-lfr"/>
-                        <outlet property="LeftPreview" destination="3cu-Rq-eKP" id="I3H-kJ-siE"/>
-                        <outlet property="LeftPreviewHeightConstraint" destination="aWz-1c-IbM" id="xZ6-pX-GP5"/>
-                        <outlet property="LeftPreviewWidthConstraint" destination="xnt-QQ-Y2C" id="NVM-Vy-0DK"/>
-                        <outlet property="RightChannelView" destination="UtC-S9-bnJ" id="QGm-1L-RQc"/>
-                        <outlet property="RightPreview" destination="YUV-VB-hP5" id="gLa-81-AhB"/>
-                        <outlet property="RightPreviewHeightConstraint" destination="ED1-gb-2fF" id="x43-4s-z2U"/>
-                        <outlet property="RightPreviewWidthConstraint" destination="IHn-Vu-ejz" id="lcL-vi-6jF"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-319" y="812.5"/>
+            <point key="canvasLocation" x="-830" y="680.5"/>
         </scene>
     </scenes>
 </document>

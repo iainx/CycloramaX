@@ -24,6 +24,7 @@ namespace Cyclorama.Filters
         }
 
         public CIImage InputImage { get; set; }
+        public CIColor KeyColor { get; set; }
         public override CIImage OutputImage {
             get {
                 var src = new CISampler (InputImage);
@@ -31,7 +32,7 @@ namespace Cyclorama.Filters
                 NSMutableDictionary options = new NSMutableDictionary ();
 
                 args.Add (src);
-                args.Add (CIColor.BlackColor);
+                args.Add (KeyColor);
 
                 options [CIFilterApply.OptionDefinition] = src.Definition;
                 CIImage output = Apply (_GSChromaKeyFilterKernel, args, options);

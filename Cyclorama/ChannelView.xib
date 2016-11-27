@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ChannelViewController">
+            <connections>
+                <outlet property="view" destination="4" id="17"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="4" customClass="ChannelView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="314"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P67-id-dgj">
+                    <rect key="frame" x="225" y="1" width="81" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zja-dH-3I1">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="SelectSecondFilter:" target="4" id="sXB-Rs-PVI"/>
+                    </connections>
+                </button>
+                <avPlayerView controlsStyle="none" translatesAutoresizingMaskIntoConstraints="NO" id="kWP-cc-eY6" customClass="PlaybackPreviewView">
+                    <rect key="frame" x="0.0" y="37" width="320" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="KMD-7P-jga"/>
+                        <constraint firstAttribute="height" constant="240" id="eG8-Es-VFx"/>
+                    </constraints>
+                </avPlayerView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eEd-Vk-djP">
+                    <rect key="frame" x="14" y="1" width="81" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wlk-so-L0z">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="SelectFirstFilter:" target="4" id="ryH-sH-npc"/>
+                    </connections>
+                </button>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="x6w-Qq-Pg0">
+                    <rect key="frame" x="18" y="283" width="123" height="25"/>
+                    <buttonCell key="cell" type="check" title="Use Chroma Key" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bqE-MI-FIh">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="UseChromaKeyToggled:" target="4" id="2ua-Ro-EPh"/>
+                    </connections>
+                </button>
+                <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="FUX-LD-fpu">
+                    <rect key="frame" x="256" y="284" width="44" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="23" id="eBh-gu-2oK"/>
+                        <constraint firstAttribute="width" constant="44" id="noK-4s-Uu1"/>
+                    </constraints>
+                    <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="KeyColorChanged:" target="4" id="Um8-vM-NnE"/>
+                    </connections>
+                </colorWell>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="eEd-Vk-djP" secondAttribute="bottom" constant="8" id="2JT-6R-laP"/>
+                <constraint firstItem="x6w-Qq-Pg0" firstAttribute="leading" secondItem="4" secondAttribute="leading" constant="20" id="2jW-mb-wCs"/>
+                <constraint firstItem="kWP-cc-eY6" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="7tf-P9-duI"/>
+                <constraint firstItem="x6w-Qq-Pg0" firstAttribute="top" secondItem="4" secondAttribute="top" constant="8" id="Cwc-rP-zO8"/>
+                <constraint firstItem="kWP-cc-eY6" firstAttribute="top" secondItem="x6w-Qq-Pg0" secondAttribute="bottom" constant="8" id="Dbh-IB-dL5"/>
+                <constraint firstAttribute="trailing" secondItem="P67-id-dgj" secondAttribute="trailing" constant="20" symbolic="YES" id="QyJ-QC-MEd"/>
+                <constraint firstAttribute="trailing" secondItem="FUX-LD-fpu" secondAttribute="trailing" constant="20" id="UR2-S8-Vd8"/>
+                <constraint firstItem="FUX-LD-fpu" firstAttribute="centerY" secondItem="x6w-Qq-Pg0" secondAttribute="centerY" id="cKv-wR-2w3"/>
+                <constraint firstItem="eEd-Vk-djP" firstAttribute="leading" secondItem="4" secondAttribute="leading" constant="20" id="jE5-qa-r7G"/>
+                <constraint firstAttribute="bottom" secondItem="P67-id-dgj" secondAttribute="bottom" constant="8" id="owS-Kz-MWD"/>
+                <constraint firstItem="P67-id-dgj" firstAttribute="top" secondItem="kWP-cc-eY6" secondAttribute="bottom" constant="8" id="pAK-Q7-oXx"/>
+                <constraint firstItem="eEd-Vk-djP" firstAttribute="top" secondItem="kWP-cc-eY6" secondAttribute="bottom" constant="8" id="tCM-Yk-2Qy"/>
+            </constraints>
+            <connections>
+                <outlet property="ChromaKeyColor" destination="FUX-LD-fpu" id="XPn-Ka-YkE"/>
+                <outlet property="FilterSelector1" destination="eEd-Vk-djP" id="xEV-V5-kMc"/>
+                <outlet property="FilterSelector2" destination="P67-id-dgj" id="1EC-ow-KHd"/>
+                <outlet property="PreviewView" destination="kWP-cc-eY6" id="iFQ-wh-X0l"/>
+                <outlet property="UseChromaKey" destination="x6w-Qq-Pg0" id="U4Z-cn-lnA"/>
+            </connections>
+            <point key="canvasLocation" x="64" y="172.5"/>
+        </customView>
+    </objects>
+</document>

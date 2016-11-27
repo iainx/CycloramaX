@@ -16,14 +16,41 @@ namespace Cyclorama
 
         Performance performance;
 
+        ChannelViewController leftChannelViewController;
+        ChannelViewController rightChannelViewController;
+        ChannelView leftChannelView;
+        ChannelView rightChannelView;
+
         public override void ViewDidLoad ()
         {
             base.ViewDidLoad ();
 
             performance = ((AppDelegate)NSApplication.SharedApplication.Delegate).Performance;
 
-            LeftChannelView.Channel = performance.LeftChannel;
-            RightChannelView.Channel = performance.RightChannel;
+            leftChannelViewController = new ChannelViewController ();
+            rightChannelViewController = new ChannelViewController ();
+
+            leftChannelView = leftChannelViewController.View;
+            leftChannelView.TranslatesAutoresizingMaskIntoConstraints = false;
+            leftChannelView.Identifier = "LeftChannel";
+            rightChannelView = rightChannelViewController.View;
+            rightChannelView.TranslatesAutoresizingMaskIntoConstraints = false;
+            rightChannelView.Identifier = "RightChannel";
+
+            View.AddSubview (leftChannelView);
+            View.AddSubview (rightChannelView);
+
+            leftChannelView.Channel = performance.LeftChannel;
+            rightChannelView.Channel = performance.RightChannel;
+
+            var viewsDict = new NSDictionary ("left", leftChannelView, "right", rightChannelView);
+            var constraints = NSLayoutConstraint.FromVisualFormat ("|-20-[left]-40-[right]-20-|", NSLayoutFormatOptions.AlignAllBottom,
+                                                                   null, viewsDict);
+            View.AddConstraints (constraints);
+            constraints = NSLayoutConstraint.FromVisualFormat ("V:|[left]|", NSLayoutFormatOptions.None, null, viewsDict);
+            View.AddConstraints (constraints);
+            constraints = NSLayoutConstraint.FromVisualFormat ("V:|[right]|", NSLayoutFormatOptions.None, null, viewsDict);
+            View.AddConstraints (constraints);
         }
 
         public override void ViewDidAppear ()

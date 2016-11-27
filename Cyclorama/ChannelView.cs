@@ -52,6 +52,13 @@ namespace Cyclorama
             };
         }
 
+        public override CoreGraphics.CGSize IntrinsicContentSize
+        {
+            get {
+                return new CoreGraphics.CGSize (320, 314);
+            }
+        }
+
         partial void SelectFirstFilter (NSObject sender)
         {
             popover = new FilterSelectorPopover ();
@@ -78,6 +85,17 @@ namespace Cyclorama
                 popover = null;
             };
             popover.Show (CoreGraphics.CGRect.Empty, FilterSelector2, NSRectEdge.MinYEdge);
+        }
+
+        partial void KeyColorChanged (Foundation.NSObject sender)
+        {
+            var color = ChromaKeyColor.Color;
+            channel.KeyColor = new CIColor (color);
+        }
+
+        partial void UseChromaKeyToggled (Foundation.NSObject sender)
+        {
+            channel.UseChromaKey = (UseChromaKey.State == NSCellStateValue.On);
         }
     }
 }

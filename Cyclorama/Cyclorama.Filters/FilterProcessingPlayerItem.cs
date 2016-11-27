@@ -22,16 +22,24 @@ namespace Cyclorama.Filters
         {
             this.channel = channel;
             VideoComposition = AVVideoComposition.CreateVideoComposition (asset, ProcessImage);
+
             keyFilter = new ChromaKeyFilter ();
             keyFilter.Name = "keyFilter";
+            keyFilter.KeyColor = channel.KeyColor;
+            channel.KeyColorChanged += (sender, e) => {
+                keyFilter.KeyColor = channel.KeyColor;
+            };
         }
 
         void ProcessImage (AVAsynchronousCIImageFilteringRequest obj)
         {
             var sourceImage = obj.SourceImage;
 
-            keyFilter.InputImage = sourceImage;
-            sourceImage = keyFilter.OutputImage;
+            if (channel.UseChromaKey) {
+                keyFilter.InputImage = sourceImage;
+                sourceImage = keyFilter.OutputImage;
+            }
+
             if (channel.Filters == null) {
                 obj.Finish (sourceImage, context);
                 return;

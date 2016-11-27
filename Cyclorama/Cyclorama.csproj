@@ -123,11 +123,16 @@
     <Compile Include="Cyclorama.Midi\MidiProcessor.cs" />
     <Compile Include="Cyclorama.Filters\ChromaKeyFilter.cs" />
     <Compile Include="Cyclorama.Filters\FilterProcessingPlayerItem.cs" />
+    <Compile Include="ChannelViewController.cs" />
+    <Compile Include="ChannelViewController.designer.cs">
+      <DependentUpon>ChannelViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Cyclorama.FilterSelector\FilterSelectorViewHeader.xib" />
     <InterfaceDefinition Include="Cyclorama.FilterSelector\FilterSelectorViewItem.xib" />
+    <InterfaceDefinition Include="ChannelView.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\demo-bird.png" />

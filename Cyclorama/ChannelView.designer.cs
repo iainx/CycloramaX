@@ -13,6 +13,9 @@ namespace Cyclorama
 	partial class ChannelView
 	{
 		[Outlet]
+		AppKit.NSColorWell ChromaKeyColor { get; set; }
+
+		[Outlet]
 		AppKit.NSButton FilterSelector1 { get; set; }
 
 		[Outlet]
@@ -21,17 +24,31 @@ namespace Cyclorama
 		[Outlet]
 		Cyclorama.PlaybackPreviewView PreviewView { get; set; }
 
+		[Outlet]
+		AppKit.NSButton UseChromaKey { get; set; }
+
+		[Action ("KeyColorChanged:")]
+		partial void KeyColorChanged (Foundation.NSObject sender);
+
 		[Action ("SelectFirstFilter:")]
 		partial void SelectFirstFilter (Foundation.NSObject sender);
 
 		[Action ("SelectSecondFilter:")]
 		partial void SelectSecondFilter (Foundation.NSObject sender);
+
+		[Action ("UseChromaKeyToggled:")]
+		partial void UseChromaKeyToggled (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (PreviewView != null) {
-				PreviewView.Dispose ();
-				PreviewView = null;
+			if (UseChromaKey != null) {
+				UseChromaKey.Dispose ();
+				UseChromaKey = null;
+			}
+
+			if (ChromaKeyColor != null) {
+				ChromaKeyColor.Dispose ();
+				ChromaKeyColor = null;
 			}
 
 			if (FilterSelector1 != null) {
@@ -42,6 +59,11 @@ namespace Cyclorama
 			if (FilterSelector2 != null) {
 				FilterSelector2.Dispose ();
 				FilterSelector2 = null;
+			}
+
+			if (PreviewView != null) {
+				PreviewView.Dispose ();
+				PreviewView = null;
 			}
 		}
 	}
