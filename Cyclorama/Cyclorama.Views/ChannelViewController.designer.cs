@@ -7,10 +7,10 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
-	[Register ("PerformanceView")]
-	partial class PerformanceView
+	[Register ("ChannelViewController")]
+	partial class ChannelViewController
 	{
 		
 		void ReleaseDesignerOutlets ()

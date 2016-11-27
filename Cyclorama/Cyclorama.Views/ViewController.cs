@@ -6,7 +6,7 @@ using Foundation;
 using AVFoundation;
 using CoreImage;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
     public partial class ViewController : NSViewController
     {

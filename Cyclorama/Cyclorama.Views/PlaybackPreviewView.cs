@@ -8,7 +8,7 @@ using AppKit;
 using AVFoundation;
 using AVKit;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
 	public partial class PlaybackPreviewView : AVPlayerView
     {

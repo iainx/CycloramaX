@@ -4,7 +4,7 @@ using System.Linq;
 using Foundation;
 using AppKit;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
     public partial class ChannelViewController : AppKit.NSViewController
     {

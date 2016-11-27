@@ -6,7 +6,7 @@ using Foundation;
 using AppKit;
 using AVFoundation;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
     public partial class PerformanceViewController : NSViewController, INSTouchBarDelegate
 	{

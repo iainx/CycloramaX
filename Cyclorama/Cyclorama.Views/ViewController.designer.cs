@@ -7,16 +7,16 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
 	[Register ("ViewController")]
 	partial class ViewController
 	{
 		[Outlet]
-		Cyclorama.ChannelView LeftChannelView { get; set; }
+		Cyclorama.Views.ChannelView LeftChannelView { get; set; }
 
 		[Outlet]
-		Cyclorama.PlaybackPreviewView LeftPreview { get; set; }
+		Cyclorama.Views.PlaybackPreviewView LeftPreview { get; set; }
 
 		[Outlet]
 		AppKit.NSLayoutConstraint LeftPreviewHeightConstraint { get; set; }
@@ -25,10 +25,10 @@ namespace Cyclorama
 		AppKit.NSLayoutConstraint LeftPreviewWidthConstraint { get; set; }
 
 		[Outlet]
-		Cyclorama.ChannelView RightChannelView { get; set; }
+		Cyclorama.Views.ChannelView RightChannelView { get; set; }
 
 		[Outlet]
-		Cyclorama.PlaybackPreviewView RightPreview { get; set; }
+		Cyclorama.Views.PlaybackPreviewView RightPreview { get; set; }
 
 		[Outlet]
 		AppKit.NSLayoutConstraint RightPreviewHeightConstraint { get; set; }

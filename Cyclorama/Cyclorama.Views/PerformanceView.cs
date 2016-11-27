@@ -7,7 +7,7 @@ using AppKit;
 using AVFoundation;
 using CoreAnimation;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
 	public partial class PerformanceView : NSView
 	{

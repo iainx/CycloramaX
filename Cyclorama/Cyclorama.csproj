@@ -69,6 +69,7 @@
     <Folder Include="Cyclorama.FilterSelector\" />
     <Folder Include="Cyclorama.Midi\" />
     <Folder Include="Cyclorama.Filters\" />
+    <Folder Include="Cyclorama.Views\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -77,31 +78,11 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PlaybackPreviewView.cs" />
-    <Compile Include="PlaybackPreviewView.designer.cs">
-      <DependentUpon>PlaybackPreviewView.cs</DependentUpon>
-    </Compile>
     <Compile Include="PerformanceWindowController.cs" />
     <Compile Include="PerformanceWindowController.designer.cs">
       <DependentUpon>PerformanceWindowController.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerformanceViewController.cs" />
-    <Compile Include="PerformanceViewController.designer.cs">
-      <DependentUpon>PerformanceViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PerformanceView.cs" />
-    <Compile Include="PerformanceView.designer.cs">
-      <DependentUpon>PerformanceView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Performance.cs" />
-    <Compile Include="ChannelView.cs" />
-    <Compile Include="ChannelView.designer.cs">
-      <DependentUpon>ChannelView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cyclorama.FilterSelector\FilterModel.cs" />
     <Compile Include="Cyclorama.FilterSelector\FilterSelectorPopover.cs" />
     <Compile Include="Cyclorama.FilterSelector\FilterSelectorView.cs" />
@@ -123,16 +104,36 @@
     <Compile Include="Cyclorama.Midi\MidiProcessor.cs" />
     <Compile Include="Cyclorama.Filters\ChromaKeyFilter.cs" />
     <Compile Include="Cyclorama.Filters\FilterProcessingPlayerItem.cs" />
-    <Compile Include="ChannelViewController.cs" />
-    <Compile Include="ChannelViewController.designer.cs">
+    <Compile Include="Cyclorama.Views\ChannelView.cs" />
+    <Compile Include="Cyclorama.Views\ChannelView.designer.cs">
+      <DependentUpon>ChannelView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cyclorama.Views\ChannelViewController.cs" />
+    <Compile Include="Cyclorama.Views\ChannelViewController.designer.cs">
       <DependentUpon>ChannelViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cyclorama.Views\PerformanceView.cs" />
+    <Compile Include="Cyclorama.Views\PerformanceView.designer.cs">
+      <DependentUpon>PerformanceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cyclorama.Views\PerformanceViewController.cs" />
+    <Compile Include="Cyclorama.Views\PerformanceViewController.designer.cs">
+      <DependentUpon>PerformanceViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cyclorama.Views\PlaybackPreviewView.cs" />
+    <Compile Include="Cyclorama.Views\PlaybackPreviewView.designer.cs">
+      <DependentUpon>PlaybackPreviewView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cyclorama.Views\ViewController.cs" />
+    <Compile Include="Cyclorama.Views\ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Cyclorama.FilterSelector\FilterSelectorViewHeader.xib" />
     <InterfaceDefinition Include="Cyclorama.FilterSelector\FilterSelectorViewItem.xib" />
-    <InterfaceDefinition Include="ChannelView.xib" />
+    <InterfaceDefinition Include="Cyclorama.Views\ChannelView.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\demo-bird.png" />

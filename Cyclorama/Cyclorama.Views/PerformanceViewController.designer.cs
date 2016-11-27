@@ -7,14 +7,20 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
-	[Register ("PlaybackPreviewView")]
-	partial class PlaybackPreviewView
+	[Register ("PerformanceViewController")]
+	partial class PerformanceViewController
 	{
+		[Outlet]
+		Cyclorama.Views.PerformanceView MainView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (MainView != null) {
+				MainView.Dispose ();
+				MainView = null;
+			}
 		}
 	}
 }

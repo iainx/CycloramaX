@@ -6,7 +6,7 @@ using Foundation;
 
 using Cyclorama.FilterSelector;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
     public partial class ChannelView : NSView
     {
@@ -22,6 +22,8 @@ namespace Cyclorama
             set {
                 channel = value;
                 PreviewView.Player = channel.Player;
+                ChromaKeyColor.Color = NSColor.FromCIColor (channel.KeyColor);
+                UseChromaKey.State = channel.UseChromaKey ? NSCellStateValue.On : NSCellStateValue.Off;
             }
         }
 

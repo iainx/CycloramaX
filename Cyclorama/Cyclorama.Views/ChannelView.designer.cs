@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Cyclorama
+namespace Cyclorama.Views
 {
 	[Register ("ChannelView")]
 	partial class ChannelView
@@ -22,7 +22,7 @@ namespace Cyclorama
 		AppKit.NSButton FilterSelector2 { get; set; }
 
 		[Outlet]
-		Cyclorama.PlaybackPreviewView PreviewView { get; set; }
+		Cyclorama.Views.PlaybackPreviewView PreviewView { get; set; }
 
 		[Outlet]
 		AppKit.NSButton UseChromaKey { get; set; }
