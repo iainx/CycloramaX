@@ -29,6 +29,7 @@ namespace Cyclorama.Views
             MainView.RightPlayer = performance.RightChannel.Player;
 
             if (performance.CrossfaderActive) {
+                MainView.LeftVideo.Opacity = 1.0f - performance.CrossfaderValue;
                 MainView.RightVideo.Opacity = performance.CrossfaderValue;
             }
 
@@ -39,10 +40,12 @@ namespace Cyclorama.Views
                 MainView.RightVideo.Hidden = !performance.RightChannel.Active;
             };
             performance.CrossfaderActiveChanged += (sender, e) => {
+                MainView.LeftVideo.Opacity = (performance.CrossfaderActive ? 1.0f - performance.CrossfaderValue : 1.0f);
                 MainView.RightVideo.Opacity = (performance.CrossfaderActive ? performance.CrossfaderValue : 1.0f);
             };
             performance.CrossfaderChanged += (sender, e) => {
                 if (performance.CrossfaderActive) {
+                    MainView.LeftVideo.Opacity = 1.0f - performance.CrossfaderValue;
                     MainView.RightVideo.Opacity = performance.CrossfaderValue;
                 }
             };
