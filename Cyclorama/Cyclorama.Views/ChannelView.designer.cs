@@ -25,6 +25,9 @@ namespace Cyclorama.Views
 		Cyclorama.Views.PlaybackPreviewView PreviewView { get; set; }
 
 		[Outlet]
+		AppKit.NSSlider SpeedControl { get; set; }
+
+		[Outlet]
 		AppKit.NSButton UseChromaKey { get; set; }
 
 		[Action ("KeyColorChanged:")]
@@ -36,16 +39,14 @@ namespace Cyclorama.Views
 		[Action ("SelectSecondFilter:")]
 		partial void SelectSecondFilter (Foundation.NSObject sender);
 
+		[Action ("SpeedChanged:")]
+		partial void SpeedChanged (Foundation.NSObject sender);
+
 		[Action ("UseChromaKeyToggled:")]
 		partial void UseChromaKeyToggled (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (UseChromaKey != null) {
-				UseChromaKey.Dispose ();
-				UseChromaKey = null;
-			}
-
 			if (ChromaKeyColor != null) {
 				ChromaKeyColor.Dispose ();
 				ChromaKeyColor = null;
@@ -64,6 +65,16 @@ namespace Cyclorama.Views
 			if (PreviewView != null) {
 				PreviewView.Dispose ();
 				PreviewView = null;
+			}
+
+			if (UseChromaKey != null) {
+				UseChromaKey.Dispose ();
+				UseChromaKey = null;
+			}
+
+			if (SpeedControl != null) {
+				SpeedControl.Dispose ();
+				SpeedControl = null;
 			}
 		}
 	}

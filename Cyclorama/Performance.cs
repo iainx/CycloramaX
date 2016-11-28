@@ -85,6 +85,18 @@ namespace Cyclorama
             }
             public event EventHandler KeyColorChanged;
 
+            float rate;
+            public float Rate {
+                get {
+                    return rate;
+                }
+
+                set {
+                    rate = value;
+                    Player.Rate = rate;
+                }
+            }
+
             public Channel ()
             {
                 Filters = new CIFilter [2];
@@ -94,6 +106,8 @@ namespace Cyclorama
 
                 queuePlayer = new AVQueuePlayer ();
                 queuePlayer.Muted = true;
+
+                Rate = 1.0f;
             }
         }
 

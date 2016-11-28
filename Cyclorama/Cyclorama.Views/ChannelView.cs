@@ -24,6 +24,7 @@ namespace Cyclorama.Views
                 PreviewView.Player = channel.Player;
                 ChromaKeyColor.Color = NSColor.FromCIColor (channel.KeyColor);
                 UseChromaKey.State = channel.UseChromaKey ? NSCellStateValue.On : NSCellStateValue.Off;
+                SpeedControl.FloatValue = (channel.Rate * 50.0f);
             }
         }
 
@@ -57,7 +58,7 @@ namespace Cyclorama.Views
         public override CoreGraphics.CGSize IntrinsicContentSize
         {
             get {
-                return new CoreGraphics.CGSize (320, 314);
+                return new CoreGraphics.CGSize (351, 314);
             }
         }
 
@@ -98,6 +99,11 @@ namespace Cyclorama.Views
         partial void UseChromaKeyToggled (Foundation.NSObject sender)
         {
             channel.UseChromaKey = (UseChromaKey.State == NSCellStateValue.On);
+        }
+
+        partial void SpeedChanged (NSObject sender)
+        {
+            channel.Rate = SpeedControl.FloatValue / 50.0f;
         }
     }
 }
