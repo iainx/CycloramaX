@@ -41,8 +41,13 @@ namespace Cyclorama.Views
             }
         }
 
+        public CALayer BackgroundLayer { get; set; }
+
 		public PerformanceView (IntPtr handle) : base (handle)
 		{
+            BackgroundLayer = new CALayer ();
+            BackgroundLayer.Name = "Background";
+
             leftVideo = new AVPlayerLayer ();
             leftVideo.Name = "leftVideo";
 
@@ -53,6 +58,12 @@ namespace Cyclorama.Views
         public override void ViewDidMoveToWindow ()
         {
             Layer.LayoutManager = CAConstraintLayoutManager.LayoutManager;
+
+            BackgroundLayer.AddConstraint (CAConstraint.Create (CAConstraintAttribute.MinX, "superlayer", CAConstraintAttribute.MinX));
+            BackgroundLayer.AddConstraint (CAConstraint.Create (CAConstraintAttribute.MinY, "superlayer", CAConstraintAttribute.MinY));
+            BackgroundLayer.AddConstraint (CAConstraint.Create (CAConstraintAttribute.MaxX, "superlayer", CAConstraintAttribute.MaxX));
+            BackgroundLayer.AddConstraint (CAConstraint.Create (CAConstraintAttribute.MaxY, "superlayer", CAConstraintAttribute.MaxY));
+            Layer.AddSublayer (BackgroundLayer);
 
             leftVideo.AddConstraint (CAConstraint.Create (CAConstraintAttribute.MinX, "superlayer", CAConstraintAttribute.MinX));
             leftVideo.AddConstraint (CAConstraint.Create (CAConstraintAttribute.MinY, "superlayer", CAConstraintAttribute.MinY));

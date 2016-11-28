@@ -136,6 +136,7 @@
     <Compile Include="Cyclorama.Views\ControlBarViewController.designer.cs">
       <DependentUpon>ControlBarViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cyclorama.Views\DraggableImageView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />

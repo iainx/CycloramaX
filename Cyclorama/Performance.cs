@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Foundation;
+using AppKit;
 using AVFoundation;
 using CoreImage;
 using CoreMedia;
+using Foundation;
 
 using Cyclorama.Filters;
 
@@ -36,7 +37,7 @@ namespace Cyclorama
                 }
             }
 
-            AVQueuePlayer queuePlayer;
+            readonly AVQueuePlayer queuePlayer;
             public AVPlayer Player { get { return queuePlayer; } }
 
 #pragma warning disable 0414
@@ -134,6 +135,17 @@ namespace Cyclorama
         }
         public event EventHandler CrossfaderChanged;
 
+        NSImage background;
+        public NSImage Background {
+            get {
+                return background;
+            }
+            set{
+                background = value;
+                BackgroundChanged?.Invoke (this, EventArgs.Empty);
+            }
+        }
+        public event EventHandler BackgroundChanged;
         public Performance ()
         {
             Channels = new List<Channel> ();
@@ -143,6 +155,8 @@ namespace Cyclorama
 
             LeftChannel.Asset = AVAsset.FromUrl (NSUrl.FromFilename ("/Users/iain/Downloads/matrix.mp4"));
             RightChannel.Asset = AVAsset.FromUrl (NSUrl.FromFilename ("/Users/iain/Downloads/AR_8BIT_5_512kb.mp4"));
+
+            Background = new NSImage ("/Users/iain/Pictures/a3114763257_2.jpg");
         }
     }
 }

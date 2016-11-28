@@ -23,6 +23,8 @@ namespace Cyclorama.Views
             View.Window.MakeFirstResponder (View);
 
             performance = ((AppDelegate)NSApplication.SharedApplication.Delegate).Performance;
+            MainView.BackgroundLayer.Contents = performance.Background.CGImage;
+
             MainView.LeftPlayer = performance.LeftChannel.Player;
             MainView.RightPlayer = performance.RightChannel.Player;
 
@@ -43,6 +45,10 @@ namespace Cyclorama.Views
                 if (performance.CrossfaderActive) {
                     MainView.RightVideo.Opacity = performance.CrossfaderValue;
                 }
+            };
+
+            performance.BackgroundChanged += (sender, e) => {
+                MainView.BackgroundLayer.Contents = performance.Background.CGImage;
             };
         }
 	}

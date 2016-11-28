@@ -20,6 +20,7 @@ namespace Cyclorama.Views
         ChannelViewController rightChannelViewController;
         ChannelView leftChannelView;
         ChannelView rightChannelView;
+        DraggableImageView backgroundImageView;
 
         ControlBarViewController controlBarViewController;
 
@@ -42,23 +43,37 @@ namespace Cyclorama.Views
             rightChannelView.TranslatesAutoresizingMaskIntoConstraints = false;
             rightChannelView.Identifier = "RightChannel";
 
+            backgroundImageView = new DraggableImageView ();
+            backgroundImageView.TranslatesAutoresizingMaskIntoConstraints = false;
+            backgroundImageView.ImageChanged += (sender, obj) => {
+                performance.Background = backgroundImageView.Image;
+            };
+
             View.AddSubview (leftChannelView);
             View.AddSubview (rightChannelView);
             View.AddSubview (controlBarViewController.View);
+            View.AddSubview (backgroundImageView);
 
             leftChannelView.Channel = performance.LeftChannel;
             rightChannelView.Channel = performance.RightChannel;
 
-            var viewsDict = new NSDictionary ("left", leftChannelView, "right", rightChannelView, "control", controlBarViewController.View);
+            backgroundImageView.Image = performance.Background;
+
+            var viewsDict = new NSDictionary ("left", leftChannelView, "right", rightChannelView, "control", controlBarViewController.View,
+                                              "background", backgroundImageView);
             var constraints = NSLayoutConstraint.FromVisualFormat ("|-20-[left]-40-[right]-20-|", NSLayoutFormatOptions.AlignAllBottom,
                                                                    null, viewsDict);
             View.AddConstraints (constraints);
-            constraints = NSLayoutConstraint.FromVisualFormat ("|-20-[control]-20-|", NSLayoutFormatOptions.None, null, viewsDict);
+            constraints = NSLayoutConstraint.FromVisualFormat ("|-20-[background]-20-[control]-20-|", NSLayoutFormatOptions.None, null, viewsDict);
             View.AddConstraints (constraints);
-            constraints = NSLayoutConstraint.FromVisualFormat ("V:|[left][control]|", NSLayoutFormatOptions.None, null, viewsDict);
+            constraints = NSLayoutConstraint.FromVisualFormat ("V:|[left][background]|", NSLayoutFormatOptions.None, null, viewsDict);
             View.AddConstraints (constraints);
-            constraints = NSLayoutConstraint.FromVisualFormat ("V:|[right]", NSLayoutFormatOptions.None, null, viewsDict);
+            constraints = NSLayoutConstraint.FromVisualFormat ("V:|[right][control]|", NSLayoutFormatOptions.None, null, viewsDict);
             View.AddConstraints (constraints);
+
+            var constraint = NSLayoutConstraint.Create (backgroundImageView, NSLayoutAttribute.Width, NSLayoutRelation.Equal,
+                                                        backgroundImageView, NSLayoutAttribute.Height, 1.0f, 0.0f);
+            backgroundImageView.AddConstraint (constraint);
         }
 
         public override void ViewDidAppear ()
